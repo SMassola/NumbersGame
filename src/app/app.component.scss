@@ -1,0 +1,8 @@
+@import 'sass/styles';
+
+.page-title {
+  @include flex-center;
+  color: white;
+  font-size: 60px;
+  white-space: nowrap;
+}

@@ -1,0 +1,17 @@
+@import 'sass/styles';
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  border: 5px solid white;
+  width: 250px;
+  height: 170px;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}

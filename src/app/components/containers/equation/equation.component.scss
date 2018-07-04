@@ -1,0 +1,15 @@
+@import 'sass/styles';
+
+.answer {
+  @include flex-center;
+  color: white;
+  font-size: 100px;
+  white-space: nowrap;
+}
+
+ul {
+  @include flex-center;
+  border: 5px solid white;
+  height: 100px;
+  min-width: 100%;
+} 

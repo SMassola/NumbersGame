@@ -1,0 +1,39 @@
+@import 'sass/styles';
+
+:host-context(.draggable-mirror) {
+  .tile-number {
+    background-color: lightseagreen;
+    transform: scale(1.1, 1.1);
+  }
+
+  .tile-operator {
+    background-color: orange;
+    transform: scale(1.1, 1.1);
+  }
+}
+
+:host-context(.draggable-source--is-dragging) {
+
+  .tile-number,
+  .tile-operator {
+    @include halftone-pattern;
+    @include pattern-halftone-animated;
+    // border: 5px solid lightpink;
+  }
+}
+
+.tile {
+  @include flex-center;
+  @include square(80px);
+  background-color: #1c252e;
+  color: white;
+  font-size: 24px;
+}
+
+.tile-operator {
+  border: 5px solid orange;
+}
+
+.tile-number {
+  border: 5px solid lightseagreen;
+}

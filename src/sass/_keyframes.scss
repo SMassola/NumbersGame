@@ -1,0 +1,11 @@
+@import 'variables';
+
+@keyframes halftone {
+  from {
+    background-position: $halftone-bg-position-start;
+  }
+
+  to {
+    background-position: $halftone-bg-position-end;
+  }
+}

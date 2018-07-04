@@ -1,0 +1,22 @@
+@import './mixins';
+@import './fonts';
+@import './variables';
+@import './keyframes';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+  font-family: 'Bowlby One SC', cursive;
+  background-color: #1c252e;
+  margin: 0 20%;
+  min-height: 100vh;
+}
+
+.float-right {
+  float: right;
+}

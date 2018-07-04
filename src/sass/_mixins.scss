@@ -1,0 +1,30 @@
+@import 'keyframes';
+
+/* You can add global styles to this file, and also import other style files */
+@mixin square($number) {
+  width: $number;
+  height: $number;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin halftone-pattern {
+  background-image: 
+    radial-gradient(white 24%,transparent 25%),
+    radial-gradient(white 24%,transparent 25%);
+  background-position: 0 0,.6rem .6rem;
+  background-size: 1.2rem 1.2rem;
+  -webkit-animation: halftone .48s steps(5) infinite both paused;
+  animation: halftone .48s steps(5) infinite both paused;
+}
+
+@mixin pattern-halftone-animated {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  animation-play-state: running;
+}

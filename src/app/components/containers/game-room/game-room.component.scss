@@ -1,0 +1,10 @@
+@import 'sass/styles';
+
+.tile-home {
+  @include flex-center;
+}
+
+.target {
+  @include flex-center;
+  font-size: 80px;
+}
