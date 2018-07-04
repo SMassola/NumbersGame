@@ -44,11 +44,10 @@ export class GameRoomService {
       const overContainer = evt.data.dragEvent.data.overContainer;
 
       // Prevents operator tiles from sorting
-      if (sourceContainer && sourceContainer.dataset.dropzone === DROPZONES.EQUATION &&
+      if (sourceContainer && sourceContainer.dataset.dropzone === DROPZONES.OPERATOR && 
         overContainer.dataset.dropzone === DROPZONES.OPERATOR) {
         evt.cancel();
       }
-
       const dropzone = evt.dragEvent.overContainer.dataset.dropzone;
 
       // Allows sorting if the dropzone is the equation area or if the dropzone matches the current tile

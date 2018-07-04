@@ -6,8 +6,8 @@ const SORTABLE_EVENTS = {
 };
 
 const DRAGGABLE_EVENTS = {
-  START: 'draggable:start',
-  STOP: 'draggable:stop'
+  START: 'drag:start',
+  STOP: 'drag:stop'
 };
 
 export { SORTABLE_EVENTS, DRAGGABLE_EVENTS };
