@@ -9,7 +9,7 @@ export class WebsocketService {
 
   connect$: Subject<void> = new Subject<void>();
 
-  private socket = io(environment.ws_url);
+  private socket = io(window.location.hostname);
 
   constructor() {
     this.listenForNewUsers();
