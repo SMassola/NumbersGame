@@ -10,6 +10,12 @@ const server = http.createServer(app);
 
 const io = socketIO(server);
 
+app.use(express.static(__dirname + '/dist'));
+
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/dist/index.html'));
+});
+
 io.on('connection', (socket) => {
   console.log('new user connected');
 
