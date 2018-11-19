@@ -1,7 +1,8 @@
-@import './mixins';
+@import './flex';
 @import './fonts';
-@import './variables';
 @import './keyframes';
+@import './mixins';
+@import './variables';
 
 * {
   padding: 0;
@@ -13,10 +14,13 @@ body {
   color: white;
   font-family: 'Bowlby One SC', cursive;
   background-color: #1c252e;
-  margin: 0 20%;
-  min-height: 100vh;
+  margin: 0;
 }
 
 .float-right {
   float: right;
+}
+
+.width-100 {
+  width: 100%;
 }
