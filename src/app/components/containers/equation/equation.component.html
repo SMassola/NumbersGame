@@ -1,5 +1,10 @@
 <div class="answer">{{answer}}</div>
 
-<ul class="equation operator-dropzone number-dropzone" data-dropzone="equation"></ul>
+<ul
+  id="equation"
+  class="equation operator-dropzone number-dropzone"
+  data-dropzone="equation"
+  (click)="moveTile($event)">
+</ul>
 
 <div class="float-right">dropzone</div>

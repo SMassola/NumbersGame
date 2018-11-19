@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-tile',
@@ -6,6 +6,7 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
   styleUrls: ['./tile.component.scss']
 })
 export class TileComponent {
+  @HostBinding('attr.value')
   @Input()
   value: string;
 

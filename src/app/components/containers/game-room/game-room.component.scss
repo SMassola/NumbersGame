@@ -1,5 +1,9 @@
 @import '../../../../sass/styles';
 
+.game-room-container {
+  margin: 0 40px;
+}
+
 .tile-home {
   @include flex-center;
 }

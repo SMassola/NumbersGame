@@ -1,0 +1,7 @@
+<div class="scoreboard-container d-flex flex-direction-column font-sans-serif">
+  <span class="scoreboard-title">Scoreboard</span>
+  <app-user 
+    *ngFor="let user of users | async" 
+    [user]="user">
+  </app-user>
+</div>

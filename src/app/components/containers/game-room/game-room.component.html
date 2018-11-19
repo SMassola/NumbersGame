@@ -1,10 +1,12 @@
-<div class="target">Target: {{targetNumber}}</div>
+<div class="game-room-container">
+  <div class="target">Target: {{(gameState | async)?.target}}</div>
 
-<div class="tile-home">
-  <app-game-numbers [numbers]="numbers"></app-game-numbers>
-  <app-operators></app-operators>
-</div>
+  <div class="tile-home">
+    <app-game-numbers [numbers]="(gameState | async)?.numbers"></app-game-numbers>
+    <app-operators></app-operators>
+  </div>
 
-<div>
-  <app-equation></app-equation>
+  <div>
+    <app-equation></app-equation>
+  </div>
 </div>

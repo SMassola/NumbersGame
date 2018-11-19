@@ -12,7 +12,6 @@ if (typeof window !== 'undefined') {
 export class GameRoomService {
   dropzones: any;
   currentTileType: string;
-  answer: string;
 
   initialize() {
     this.setDropzones();
@@ -68,12 +67,10 @@ export class GameRoomService {
     this.dropzones.on(SORTABLE_EVENTS.SORTED, (evt) => {
       const oldDropzone = evt.data.oldContainer.dataset.dropzone;
       const newDropzone = evt.data.newContainer.dataset.dropzone;
-
       // Clones tile if an operator tile is dragged to equation dropzone
       if (oldDropzone === DROPZONES.OPERATOR && newDropzone === DROPZONES.EQUATION) {
         const original = evt.data.dragEvent.data.originalSource;
         const clone = original.cloneNode(true);
-
 
         // Remove display: none
         clone.style = '';
@@ -83,11 +80,10 @@ export class GameRoomService {
       // Removes tile from opreator dropzone that is being dragged back in
       if (oldDropzone === DROPZONES.EQUATION && newDropzone === DROPZONES.OPERATOR) {
         const original = evt.data.dragEvent.data.originalSource;
-        const clone = [].find.call(
+        const clone: HTMLElement = [].find.call(
           evt.data.newContainer.children,
           (node) => node.attributes.value.textContent === original.attributes.value.textContent
         );
-
         evt.data.newContainer.removeChild(clone);
       }
     });

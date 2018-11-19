@@ -1,5 +1,19 @@
 @import '../../../../sass/styles';
 
+:host-context(.draggable) {
+  animation: slideToPosition 1s 1; 
+
+  @keyframes slideToPosition {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }      
+  }
+}
+
 :host-context(.draggable-mirror) {
   .tile-number {
     background-color: lightseagreen;
@@ -19,7 +33,7 @@
     @include halftone-pattern;
     @include pattern-halftone-animated;
     // border: 5px solid lightpink;
-  }
+    }
 }
 
 .tile {

@@ -1,5 +1,10 @@
 <div class="page-title">Numbers Game</div>
 
-<button (click)="sendMessage()"></button>
+<button (click)="resetGame()">New Game</button>
+<div class="d-flex">
+  <app-user-index></app-user-index>
 
-<app-game-room></app-game-room>
+  <div class="game-room-wrapper">
+    <app-game-room></app-game-room>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { GameRoomService } from './game-room.service';
+import { GameStateService } from '../../../services/game-state/game-state.service';
 
 @Component({
   selector: 'app-game-room',
@@ -8,47 +10,23 @@ import { GameRoomService } from './game-room.service';
 })
 export class GameRoomComponent implements OnInit {
 
-  containers;
+  gameState: Observable<any>;
 
-  numbers: number[] = [];
-  targetNumber: number;
-
-  countOfSmalls: number;
-  countOfBigs: number;
-
-  constructor(private gameRoomService: GameRoomService) { }
+  constructor(
+    private gameRoomService: GameRoomService,
+    private gameStateService: GameStateService
+  ) { }
 
   ngOnInit() {
-    this.initializeRoom();
-  }
-
-  initializeRoom() {
+    this.subscribeToGameState();
     this.initializeService();
-    this.getNumberDistribution();
-    this.generateTargetNumber();
-    this.generateNumbers();
   }
 
-  initializeService() {
+  subscribeToGameState(): void {
+    this.gameState = this.gameStateService.gameState;
+  }
+
+  initializeService(): void {
     this.gameRoomService.initialize();
-  }
-
-  getNumberDistribution(): void {
-    this.countOfSmalls = Math.floor((Math.random() * 4)) + 3;
-    this.countOfBigs = 6 - this.countOfSmalls;
-  }
-
-  generateTargetNumber() {
-    this.targetNumber = Math.floor(Math.random() * 900) + 100;
-  }
-
-  generateNumbers(): void {
-    for (let i = 0; i < this.countOfSmalls; i++) {
-      this.numbers.push(Math.floor(Math.random() * 9) + 1);
-    }
-
-    for (let i = 0; i < this.countOfBigs; i++) {
-      this.numbers.push((Math.floor(Math.random() * 4) + 1) * 25);
-    }
   }
 }

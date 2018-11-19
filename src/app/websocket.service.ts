@@ -1,3 +1,4 @@
+import { User } from './interfaces/user.interface';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -7,22 +8,26 @@ import * as io from 'socket.io-client';
 @Injectable()
 export class WebsocketService {
 
-  connect$: Subject<void> = new Subject<void>();
-
-  private socket = io(window.location.hostname);
+  private socket = io(environment.ws_url);
 
   constructor() {
     this.listenForNewUsers();
   }
 
   listenForNewUsers() {
-    this.socket.on('connect', this.handleConnection.bind(this));
+    this.socket.on('connect', () => {
+      this.socket.emit('new-user-connected', 'test-username');
+      this.socket.emit('fetch-game-state', this.socket.id);
+    });
+
+    this.socket.on('disconnect', () => {
+      this.socket.emit('remove-user');
+    });
   }
 
-  connect(): Subject<MessageEvent> {
+  connect(connection: string): Subject<MessageEvent> {
     const observable = new Observable(observer => {
-      this.socket.on('message', (data) => {
-        console.log('Received a message from websocket server');
+      this.socket.on(connection, (data) => {
         observer.next(data);
       });
 
@@ -33,15 +38,18 @@ export class WebsocketService {
 
     const observer = {
       next: (data: Object) => {
-        this.socket.emit('message', JSON.stringify(data));
+        this.socket.emit(connection, JSON.stringify(data));
       }
     };
 
     return Subject.create(observer, observable);
   }
 
-  handleConnection() {
-    this.connect$.next();
-    this.socket.emit('helllo');
+  resetGame(): void {
+    this.socket.emit('new-game');
+  }
+
+  scorePoint(): void {
+    this.socket.emit('point-scored', this.socket.id);
   }
 }

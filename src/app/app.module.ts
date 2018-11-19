@@ -1,8 +1,11 @@
+import { UserService } from './services/user/user.service';
+import { GameStateService } from './services/game-state/game-state.service';
+import { TileService } from './services/tile/tile.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { ChatService } from './chat.service';
 import { WebsocketService } from './websocket.service';
@@ -12,6 +15,9 @@ import { GameRoomComponent } from './components/containers/game-room/game-room.c
 import { GameNumbersComponent } from './components/containers/game-numbers/game-numbers.component';
 import { OperatorsComponent } from './components/containers/operators/operators.component';
 import { GameRoomService } from './components/containers/game-room/game-room.service';
+import { UserIndexComponent } from './components/containers/user-index/user-index.component';
+import { UserComponent } from './components/presentational/user/user.component';
+import { EquationService } from './components/containers/equation/equation.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +26,12 @@ import { GameRoomService } from './components/containers/game-room/game-room.ser
     EquationComponent,
     GameRoomComponent,
     GameNumbersComponent,
-    OperatorsComponent
+    OperatorsComponent,
+    UserIndexComponent,
+    UserComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     FormsModule,
     HttpModule
@@ -30,7 +39,11 @@ import { GameRoomService } from './components/containers/game-room/game-room.ser
   providers: [
     ChatService,
     WebsocketService,
-    GameRoomService
+    GameRoomService,
+    TileService,
+    UserService,
+    GameStateService,
+    EquationService
   ],
   bootstrap: [AppComponent]
 })

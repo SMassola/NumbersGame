@@ -1,4 +1,6 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { TileService } from './../../../services/tile/tile.service';
+import { Component, ElementRef, HostBinding, OnInit, ViewChild } from '@angular/core';
+import { DROPZONES } from '../../../constants/dropzones';
 
 @Component({
   selector: 'app-operators',
@@ -7,9 +9,18 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 })
 export class OperatorsComponent implements OnInit {
 
-  constructor() { }
+  operators = [ '+', '-', '*', '/', '(', ')' ];
+
+  constructor(private tileService: TileService) { }
 
   ngOnInit() {
   }
 
+  moveTile(event): void {
+    const tile = event.target.parentNode;
+
+    if (tile.matches('app-tile')) {
+      this.tileService.moveTile(DROPZONES.OPERATOR, tile);
+    }
+  }
 }

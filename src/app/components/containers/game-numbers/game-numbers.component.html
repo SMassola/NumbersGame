@@ -1,4 +1,8 @@
-<ul class="number-dropzone" data-dropzone="number">
+<ul 
+  id="number"
+  class="number-dropzone"
+  data-dropzone="number"
+  (click)="moveTile($event)">
   <app-tile 
     *ngFor="let number of numbers"
     type="number"

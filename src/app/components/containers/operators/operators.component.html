@@ -1,27 +1,12 @@
-<ul class="operator-dropzone" data-dropzone="operator">
-  <app-tile
+<ul 
+  id="operator"
+  class="operator-dropzone" 
+  data-dropzone="operator"
+  (click)="moveTile($event)">
+  <app-tile 
+    *ngFor="let operation of operators"
     type="operator"
-    value="+">
-  </app-tile>
-  <app-tile
-    type="operator"
-    value="-">
-  </app-tile>
-  <app-tile
-    type="operator"
-    value="*">
-  </app-tile>
-  <app-tile
-    type="operator"
-    value="/">
-  </app-tile>
-  <app-tile
-    type="operator"
-    value="(">
-  </app-tile>
-  <app-tile
-    type="operator"
-    value=")">
+    [value]="operation">
   </app-tile>
 </ul>
 <div class="float-right">

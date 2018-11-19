@@ -9,8 +9,7 @@ export class ChatService {
   messages: Subject<any>;
 
   constructor(private websocketService: WebsocketService) {
-    this.messages = websocketService
-      .connect();
+    this.messages = websocketService.connect('message');
   }
 
   sendMessage(message: string): void {
