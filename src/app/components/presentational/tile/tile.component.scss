@@ -16,12 +16,12 @@
 
 :host-context(.draggable-mirror) {
   .tile-number {
-    background-color: lightseagreen;
+    background-color: #ff5722;
     transform: scale(1.1, 1.1);
   }
 
   .tile-operator {
-    background-color: orange;
+    background-color: #F7CE3E;
     transform: scale(1.1, 1.1);
   }
 }
@@ -44,9 +44,11 @@
 }
 
 .tile-operator {
-  border: 5px solid orange;
+  border: 1px solid white;
+  background-color: #F7CE3E;
 }
 
 .tile-number {
-  border: 5px solid yellow;
+  border: 1px solid white;
+  background-color: #ff5722;
 }

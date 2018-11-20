@@ -8,7 +8,7 @@ import * as io from 'socket.io-client';
 @Injectable()
 export class WebsocketService {
 
-  private socket = io(window.location.hostname);
+  private socket = io(environment.ws_url);
 
   constructor() {}
 
