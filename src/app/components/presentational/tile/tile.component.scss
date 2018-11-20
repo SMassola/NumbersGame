@@ -1,9 +1,9 @@
 @import '../../../../sass/styles';
 
 :host-context(.draggable) {
-  animation: slideToPosition 1s 1; 
+  animation: fadeIn 1s 1; 
 
-  @keyframes slideToPosition {
+  @keyframes fadeIn {
     from {
       opacity: 0;
     }
@@ -38,8 +38,7 @@
 
 .tile {
   @include flex-center;
-  @include square(80px);
-  background-color: #1c252e;
+  @include square(70px);
   color: white;
   font-size: 24px;
 }
@@ -49,5 +48,5 @@
 }
 
 .tile-number {
-  border: 5px solid lightseagreen;
+  border: 5px solid yellow;
 }

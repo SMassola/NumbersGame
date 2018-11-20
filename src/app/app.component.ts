@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from './chat.service';
 import { WebsocketService } from './websocket.service';
-import { GameStateService } from './services/game-state/game-state.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,27 +8,17 @@ import { GameStateService } from './services/game-state/game-state.service';
 })
 export class AppComponent implements OnInit {
 
+  showLogin: boolean = true;
+
   constructor(
-    private websocketService: WebsocketService,
-    private chat: ChatService,
-    private gameStateService: GameStateService
+    private websocketService: WebsocketService
   ) {}
 
   ngOnInit() {
-    // this.websocketService.connect$.subscribe(() => {
-
-    // });
-
-    this.chat.messages.subscribe((message: string) => {
-      console.log(message);
-    });
   }
 
-  // sendMessage(): void {
-  //   this.chat.sendMessage('Test Message');
-  // }
-
-  resetGame() {
-    this.websocketService.resetGame();
+  joinGame(username: string): void {
+    this.showLogin = false;
+    this.websocketService.joinGame(username);
   }
 }

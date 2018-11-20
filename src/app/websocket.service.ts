@@ -10,20 +10,7 @@ export class WebsocketService {
 
   private socket = io(environment.ws_url);
 
-  constructor() {
-    this.listenForNewUsers();
-  }
-
-  listenForNewUsers() {
-    this.socket.on('connect', () => {
-      this.socket.emit('new-user-connected', 'test-username');
-      this.socket.emit('fetch-game-state', this.socket.id);
-    });
-
-    this.socket.on('disconnect', () => {
-      this.socket.emit('remove-user');
-    });
-  }
+  constructor() {}
 
   connect(connection: string): Subject<MessageEvent> {
     const observable = new Observable(observer => {
@@ -45,8 +32,8 @@ export class WebsocketService {
     return Subject.create(observer, observable);
   }
 
-  resetGame(): void {
-    this.socket.emit('new-game');
+  joinGame(username: string): void {
+    this.socket.emit('new-user-joined', username);
   }
 
   scorePoint(): void {

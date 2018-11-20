@@ -3,7 +3,7 @@ import { GameStateService } from './services/game-state/game-state.service';
 import { TileService } from './services/tile/tile.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
@@ -18,6 +18,9 @@ import { GameRoomService } from './components/containers/game-room/game-room.ser
 import { UserIndexComponent } from './components/containers/user-index/user-index.component';
 import { UserComponent } from './components/presentational/user/user.component';
 import { EquationService } from './components/containers/equation/equation.service';
+import { LoginComponent } from './components/modals/login/login.component';
+import { TimerComponent } from './components/presentational/timer/timer.component';
+import { TimerService } from './components/presentational/timer/timer.service';
 
 @NgModule({
   declarations: [
@@ -28,13 +31,16 @@ import { EquationService } from './components/containers/equation/equation.servi
     GameNumbersComponent,
     OperatorsComponent,
     UserIndexComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent,
+    TimerComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
   providers: [
     ChatService,
@@ -43,7 +49,8 @@ import { EquationService } from './components/containers/equation/equation.servi
     TileService,
     UserService,
     GameStateService,
-    EquationService
+    EquationService,
+    TimerService
   ],
   bootstrap: [AppComponent]
 })
